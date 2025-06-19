@@ -15,8 +15,27 @@ fn main() {
     // takes_ownership(s2); here s2's ownership passed to takes_ownership->str
     takes_ownership(s2.clone());
     println!("{}", s2);
+
+    // slicing
+    let mut s = String::from("Hello world!");
+    let s2 = "Hello world";
+    let hello = &s[..5];
+    let world = &s[6..];
+    let word = first_word(&s);
+    println!("{word}");
 }
 
 fn takes_ownership(str: String) {
     println!("{}", str);
+}
+
+// slices
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    return &s[..];
 }
