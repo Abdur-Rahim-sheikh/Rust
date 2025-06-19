@@ -6,6 +6,11 @@ struct User {
     active: bool,
 }
 
+impl User {
+    fn toggle_activity(&mut self) {
+        self.active = !self.active
+    }
+}
 fn main() {
     let mut user1 = User {
         email: String::from("abir@gmail.com"),
@@ -19,7 +24,7 @@ fn main() {
     println!("name {name}");
 
     let user2 = build_user(String::from("ulala"), String::from("abir"));
-    let user3 = User {
+    let mut user3 = User {
         email: String::from("abir@zumla"),
         ..user2
     };
@@ -27,7 +32,7 @@ fn main() {
     // nameless struct
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
-
+    user3.toggle_activity();
     println!("{:#?}", user3);
 }
 
