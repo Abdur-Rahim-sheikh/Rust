@@ -10,6 +10,9 @@ impl User {
     fn toggle_activity(&mut self) {
         self.active = !self.active
     }
+    fn have_conflict(&self, other: &User) -> bool {
+        return self.username == other.username && self.email > other.email;
+    }
 }
 fn main() {
     let mut user1 = User {
@@ -34,6 +37,8 @@ fn main() {
     struct Point(i32, i32, i32);
     user3.toggle_activity();
     println!("{:#?}", user3);
+    let response = user3.have_conflict(&user1);
+    println!("{response}")
 }
 
 fn build_user(email: String, username: String) -> User {
