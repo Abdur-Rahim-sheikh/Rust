@@ -35,6 +35,8 @@ fn main() {
     // nameless struct
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
+    let x = Color(1, 2, 3);
+    println!("{} value", x.1);
     user3.toggle_activity();
     println!("{:#?}", user3);
     let response = user3.have_conflict(&user1);
