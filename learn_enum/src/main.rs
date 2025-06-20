@@ -15,7 +15,7 @@ fn main() {
 
     let localhost = IpAddressKind::V4(String::from("127.0.0.1"));
     let local = IpAddressKind::V6(128, 0, 0, 1);
-    println!("{localhost:?}")
+    println!("{localhost:?}");
 }
 
 fn route(ip_kind: IpAddressKind) {}
