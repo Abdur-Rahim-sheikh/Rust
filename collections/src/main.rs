@@ -1,25 +1,57 @@
-use unicode_segmentation::UnicodeSegmentation;
+use std::collections::HashMap;
 
 fn main(){
-    let hello = String::from("সালাম");
-    // in char format
-    // Scaler values
-    // [স, া, ল, া, ম]
-    for c in hello.chars(){
-        println!("{c}")
-    } 
+    let blue = String::from("Blue");
+    let yellow = String::from("yellow");
 
-    // in byte format
-    // [224, 166, 184, 224, 166, 190, 224, 166, 178, 224, 166, 190, 224, 166, 174]
-    let c = hello.bytes().nth(0);
-    println!("{c:?}");
+    let mut scores = HashMap::new();
+    // every insert removes old insert with the key
+    scores.insert(blue.to_string(), 10);
+    scores.insert(yellow.to_string(), 50);
+    
+    // this type of insert only happens if the key had no value previously
+    scores.entry(blue).or_insert( 10);
+    scores.entry(yellow).or_insert( 50);
+    
+  
+    // word count
+    let text = "hello world beautiful world";
 
-    // in grapheme clusters
-    for g in hello.graphemes(true){
-        println!("{g}")
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace(){
+        let cnt = map.entry(word).or_insert(0);
+        *cnt+=1;
     }
+    println!("{map:#?}");
 
-}
+}   
+
+
+
+
+// use unicode_segmentation::UnicodeSegmentation;
+
+// fn main(){
+//     let hello = String::from("সালাম");
+//     // in char format
+//     // Scaler values
+//     // [স, া, ল, া, ম]
+//     for c in hello.chars(){
+//         println!("{c}")
+//     } 
+
+//     // in byte format
+//     // [224, 166, 184, 224, 166, 190, 224, 166, 178, 224, 166, 190, 224, 166, 174]
+//     let c = hello.bytes().nth(0);
+//     println!("{c:?}");
+
+//     // in grapheme clusters
+//     for g in hello.graphemes(true){
+//         println!("{g}")
+//     }
+
+// }
 
 
 
