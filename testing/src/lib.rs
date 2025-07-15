@@ -1,4 +1,5 @@
 pub mod panic_check;
+pub mod test_result;
 
 #[cfg(test)]
 #[derive(Debug)]
