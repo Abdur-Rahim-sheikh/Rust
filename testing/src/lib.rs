@@ -1,3 +1,5 @@
+pub mod panic_check;
+
 #[cfg(test)]
 #[derive(Debug)]
 struct Rectangle {
@@ -50,6 +52,10 @@ mod tests {
         assert!(
             result.contains(name),
             "Greeting did not contain name. result={result}"
+        );
+        assert!(
+            !result.contains("testi"),
+            "Greeting did contain name. result={result}"
         );
     }
 }
