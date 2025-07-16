@@ -1,6 +1,6 @@
 pub mod panic_check;
+pub mod test_organization;
 pub mod test_result;
-
 #[cfg(test)]
 #[derive(Debug)]
 struct Rectangle {
