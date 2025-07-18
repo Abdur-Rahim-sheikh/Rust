@@ -8,4 +8,6 @@ fn main() {
     println!("In file {filename}");
 
     let contents = fs::read_to_string(filename).expect("something went wrong reading the file");
+
+    println!("With text: \n{contents}");
 }
